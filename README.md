@@ -21,7 +21,7 @@ Welcome to Blockhead. Here, you will get a detailed overview of the project. Thi
 
 ## What is Blockhead?
 
-Blockhead is a platform on the polygon blockchain used for paying for goods and services. This payment system makes use of cryptocurrency as a medium of transaction; specifically, it uses POL(matic) on the polygon blockchain. It is decentralised, open-source, and requires no permission to join; this is unarguable, meaning anyone can engage on this platform as long as the user owns a wallet on the Polygon blockchain. Blockhead grants safe payment through the use of smart contracts (smart contracts are no-trust codes). Payments are held in the escrow until the condition for release are met, with an [oracle](https://chain.link/education/blockchain-oracles) in place to handle disputes when neccassary.
+Blockhead is a platform on the polygon blockchain used for paying for goods and services. This payment system makes use of cryptocurrency as a medium of transaction; specifically, it uses POL(matic) on the polygon blockchain. It is decentralized, open-source, and requires no permission to join; this is unarguable, meaning anyone can engage on this platform as long as the user owns a wallet on the Polygon blockchain. Blockhead grants safe payment through the use of smart contracts (smart contracts are no-trust codes). Payments are held in the escrow until the condition for release are met, with an [oracle](https://chain.link/education/blockchain-oracles) in place to handle disputes when necessary.
 
 ### Getting started
 
@@ -36,15 +36,15 @@ You must first register for an account on Blockhead if you are making invoices t
 
 ## The Creator
 
-A Creator or service provider, can create an invoice for buyers to make payment directly on the platform. Once logged into Blockhead, creators can easily navigate **Create Invoice** page to create an invoice where neccasary details are inputed, such as the amount in POL(matic), terms, the invoice expiration (within 180 days, depending on the agreement between the creator and payer), and the Polygon address where the payment should be released.
-The platform will generates a personalised invoice ID with a payment link and a QR code. Creators can share this personalised invoice ID or URL or QR Code to the payer enabling them to proceed with payment.
+A Creator or service provider, can create an invoice for buyers to make payment directly on the platform. Once logged into Blockhead, creators can easily navigate **Create Invoice** page to create an invoice where necessary details are inputted, such as the amount in POL(matic), terms, the invoice expiration (within 180 days, depending on the agreement between the creator and payer), and the Polygon address where the payment should be released.
+The platform will generates a personalized invoice ID with a payment link and a QR code. Creators can share this personalized invoice ID or URL or QR Code to the payer enabling them to proceed with payment.
 When the payment has been made, the funds are sent to an escrow wallet to be held securely until the conditions for release have been met. The status of your invoice can be monitored on the **Invoice List**.
 In cases of underpayment, the payer can either accept or cancel the invoice, depending on the situation. Additionally, creators are obliged to accept the payer’s funds within 3 days; otherwise, this will result in an automatic refund to the payer’s wallet.
 
 ## The Payer
 
 A payer can pay for invoices created by a creator on Blockhead. The payer receives an invoice link or a QR code from the creator. Upon opening the link in a browser, payer is redirected to the **Pay Invoice** page, where the details of the invoice, such as the payment amount, invoice expiration date, and the creator’s information, is displayed.
-To make payment, the payer is required to connect thier wallet to Blockhead to proceed with payment in POL(matic). All transactions on Blockheads are tracked and are also updated on the invoice status accordingly.
+To make payment, the payer is required to connect their wallet to Blockhead to proceed with payment in POL(matic). All transactions on Blockheads are tracked and are also updated on the invoice status accordingly.
 In cases of overpayment, the excess amount (minus the gas fee) will be automatically refunded to the payer's wallet. When the creator cancels an invoice (maybe due to an underpayment) or it exceeds the expiration, the funds will be refunded to the payer's wallet.
 
 ### How Blockhead Guarantees Security
@@ -68,8 +68,8 @@ Blockhead intends to switch to the Polygon zkEVM chain in the future.
 The pages here provide guides and technical documentation for Blockhead. You can refer to these resources to understand the Blockhead Protocol Smart Contracts and how Oracles are used.
 
 - Invoice: The smart manages the invoice process
-- Escrow: Creats unique wallet and stores payment
-- Marketplace Oracle: Its purpose includes delivering invoice data to the smart contracts, determines escrow hold period & post-dipute allocations
+- Escrow: Create unique wallet and stores payment
+- Marketplace Oracle: Its purpose includes delivering invoice data to the smart contracts, determines escrow hold period & post-dispute allocations
 
 ## Transaction Flow
 
@@ -139,7 +139,7 @@ struct InvoiceData {
 
 #### Invoice Creation function
 
-This functions handles the creation, cancalling, payment and release of invoice. This are major functions needed for the invoice contract. It contains neccassary checks inline with the protocol and emits event for off chain use.
+This functions handles the creation, cancelling, payment and release of invoice. This are major functions needed for the invoice contract. It contains necessary checks inline with the protocol and emits event for off chain use.
 
 ```typescript
 function createInvoice(address _payer, uint256 _amount, uint256 _expiration) public return(uint256 invoiceId);
@@ -184,9 +184,9 @@ This contract holds the amount of value sent by the payer. It is created by the 
 uint256 public amountDepositedByPayer
 ```
 
-The `amountDepositedByPayer` will be used to check the amount sent to the wallet by the payer. This is preferred over `address(this).balance` simply because a random wallet could send POL(matic) to the wallet resulting in inconsistencies. This will be duely handled.
+The `amountDepositedByPayer` will be used to check the amount sent to the wallet by the payer. This is preferred over `address(this).balance` simply because a random wallet could send POL(matic) to the wallet resulting in inconsistencies. This will be duly handled.
 
-The functions below handles the deposit and withdrawal of value. They perform neccasary checks, which involve allowing only the authotized withdrawals and verifyin the current status of an invoice before send out.
+The functions below handles the deposit and withdrawal of value. They perform necessary checks, which involve allowing only the authorized withdrawals and verifying the current status of an invoice before send out.
 
 ```typescript
 function deposit() payable external;
