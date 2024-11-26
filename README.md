@@ -36,8 +36,8 @@ You must first register for an account on Blockhead if you are making invoices t
 
 ## The Creator
 
-A Creator or service provider, can create an invoice for buyers to make payment directly on the platform. Once logged into Blockhead, creators can easily navigate **Create Invoice** page to create an invoice where necessary details are inputted, such as the amount in POL(matic), terms, the invoice expiration (within 180 days, depending on the agreement between the creator and payer), and the Polygon address where the payment should be released.
-The platform will generates a personalized invoice ID with a payment link and a QR code. Creators can share this personalized invoice ID or URL or QR Code to the payer enabling them to proceed with payment.
+A creator creates an invoice for buyers to make payment directly on the platform. Once logged into Blockhead, creators can easily navigate **Create Invoice** page to create an invoice where necessary details are inputted, such as the amount in POL(matic), terms, the invoice expiration (within 180 days, depending on the agreement between the creator and payer), and the Polygon address where the payment should be released.
+The platform will generates a personalized invoice ID with a payment link and a QR code. Creators can share this personalized invoice ID, URL or QR Code to the payer enabling them to proceed with payment.
 When the payment has been made, the funds are sent to an escrow wallet to be held securely until the conditions for release have been met. The status of your invoice can be monitored on the **Invoice List**.
 In cases of underpayment, the payer can either accept or cancel the invoice, depending on the situation. Additionally, creators are obliged to accept the payer’s funds within 3 days; otherwise, this will result in an automatic refund to the payer’s wallet.
 
@@ -67,8 +67,8 @@ Blockhead intends to switch to the Polygon zkEVM chain in the future.
 
 The pages here provide guides and technical documentation for Blockhead. You can refer to these resources to understand the Blockhead Protocol Smart Contracts and how Oracles are used.
 
-- Invoice: The smart manages the invoice process
-- Escrow: Create unique wallet and stores payment
+- Invoice: The smart contract manages the invoice process
+- Escrow: Creates unique wallet and stores payment
 - Marketplace Oracle: Its purpose includes delivering invoice data to the smart contracts, determines escrow hold period & post-dispute allocations
 
 ## Transaction Flow
