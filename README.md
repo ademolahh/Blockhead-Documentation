@@ -1,6 +1,6 @@
 # Blockhead Overview
 
-Welcome to Blockhead. Here, you will get a detailed overview of the project. This will serve as a comprehensive guide to understanding the blueprint and operation of the Blockhead.
+Welcome to Blockhead. Here, you will get a detailed overview of the project. This will serve as a comprehensive guide to understanding the blueprint and operation of the Blockhead payment processor.
 
 ## Table Of Content
 
@@ -36,20 +36,21 @@ You must first register for an account on Blockhead if you are making invoices t
 
 ## The Creator
 
-A creator creates an invoice for buyers to make payment directly on the platform. Once logged into Blockhead, creators can easily navigate **Create Invoice** page to create an invoice where necessary details are inputted, such as the amount in POL(matic), terms, the invoice expiration (within 180 days, depending on the agreement between the creator and payer), and the Polygon address where the payment should be released.
-The platform will generates a personalized invoice ID with a payment link and a QR code. Creators can share this personalized invoice ID, URL or QR Code to the payer enabling them to proceed with payment.
+A Creator or service provider, can create an invoice for buyers to make payment directly on the platform. Once logged into Blockhead, creators can easily navigate **Create Invoice** page to create an invoice where necessary details are inputted, such as the amount in POL(matic), terms, the invoice expiration (within 180 days, depending on the agreement between the creator and payer), and the Polygon address where the payment should be released.
+The platform will generates a personalized invoice ID with a payment link and a QR code. Creators can share this personalized invoice ID or URL or QR Code to the payer enabling them to proceed with payment.
 When the payment has been made, the funds are sent to an escrow wallet to be held securely until the conditions for release have been met. The status of your invoice can be monitored on the **Invoice List**.
 In cases of underpayment, the payer can either accept or cancel the invoice, depending on the situation. Additionally, creators are obliged to accept the payer’s funds within 3 days; otherwise, this will result in an automatic refund to the payer’s wallet.
 
 ## The Payer
 
-A payer can pay for invoices created by a creator on Blockhead. The payer receives an invoice link or a QR code from the creator. Upon opening the link in a browser, payer is redirected to the **Pay Invoice** page, where the details of the invoice, such as the payment amount, invoice expiration date, and the creator’s information, is displayed.
+A payer can pay for a created invoice on Blockhead. The payer receives an invoice link or a QR code from the creator. Upon opening the link in a browser, payer is redirected to the **Pay Invoice** page, where the details of the invoice, such as the payment amount, invoice expiration date, and the creator’s information is displayed.
 To make payment, the payer is required to connect their wallet to Blockhead to proceed with payment in POL(matic). All transactions on Blockheads are tracked and are also updated on the invoice status accordingly.
 In cases of overpayment, the excess amount (minus the gas fee) will be automatically refunded to the payer's wallet. When the creator cancels an invoice (maybe due to an underpayment) or it exceeds the expiration, the funds will be refunded to the payer's wallet.
 
 ### How Blockhead Guarantees Security
 
-Blockhead takes several precautions to guarantee each payment's security. Until the predetermined requirements for release are met, all money is first kept in an escrow wallet. Trusted oracles are employed to provide a dependable conclusion in the event of a dispute between the creator and the payer, guaranteeing a fair and open procedure for all sides, ensuring fairness for both the creator and the payer. Blockhead uses a blockchain oracle to monitor transactions on the Polygon network in order to guarantee precise payment processing and trustworthy tracking.
+Blockhead takes several precautions to guarantee each payment's security. Until the predetermined requirements for release are met, all the funds are kept in an escrow wallet. Trusted oracles are employed to provide a dependable conclusion in the event of a dispute between the creator and the payer, guaranteeing a fair and open procedure for all sides and ensuring fairness for both the creator and the payer.
+Blockhead uses a blockchain oracle to monitor transactions on the Polygon network in order to guarantee precise payment processing and trustworthy tracking.
 
 ### Managing Your Transactions
 
@@ -57,7 +58,7 @@ Creators and payers can monitor and manage their transactions on Blockhead. Invo
 
 ### Disputes and Refunds
 
-If there is a dispute over a payment, Blockhead relies on Oracle to settle the dispute. Invoices created through the marketplace use the marketplace oracle to reallocate funds to the creator or payer based on dispute resolution.
+If there is a dispute over a payment, Blockhead relies on Oracle to settle the dispute. Invoices created through the marketplace uses the oracle to reallocate funds to the creator or payer based on dispute resolution.
 
 ### Future Plan
 
@@ -67,13 +68,13 @@ Blockhead intends to switch to the Polygon zkEVM chain in the future.
 
 The pages here provide guides and technical documentation for Blockhead. You can refer to these resources to understand the Blockhead Protocol Smart Contracts and how Oracles are used.
 
-- Invoice: The smart contract manages the invoice process
-- Escrow: Creates unique wallet and stores payment
+- Invoice: The smart manages the invoice process
+- Escrow: Create unique wallet and stores payment
 - Marketplace Oracle: Its purpose includes delivering invoice data to the smart contracts, determines escrow hold period & post-dispute allocations
 
 ## Transaction Flow
 
-Each components's use during a transaction is illustrated in the diagram below
+Each components use during a transaction is illustrated in the diagram below
 
 <p align="center">
   <img src="image.png" alt="image" width="800"/>
@@ -99,7 +100,7 @@ Check [here](./flowchart.png) for more a detailed interaction between the three 
 
 ### INVOICE
 
-The invoice contract is the main entry to the smart contracts. It coordinates the distribution of funds by making it possible to change state, tracking payments, and guaranteeing that invoices are created successfully, through integration with oracles and the Escrow Factory.
+The invoice contract is the main entry to the smart contract. It coordinates the distribution of funds by making it possible to change state, tracking payments, and guaranteeing that invoices are created successfully, through integration with oracles and the Escrow Factory.
 
 **Below are very basic functions and states needed for the contract:**
 
@@ -164,7 +165,7 @@ function getListOfInvoice(address _creator) external view returns(InvoiceData[] 
 
 #### Escrow factory
 
-It creates the escrow wallet using the [CREATE2](https://eips.ethereum.org/EIPS/eip-1014) OPCODE. Create2 makes a it possible to create a deterministic and unique address with the use of a salt(any random data), creators address is used in this case
+It creates the escrow wallet using the [CREATE2](https://eips.ethereum.org/EIPS/eip-1014) OPCODE. Create2 makes a it possible to create a deterministic and unique address with the use of a salt(any random data), creators address is used in this case.
 
 We will make use of the Create2 library by [Openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/Create2.sol)
 
