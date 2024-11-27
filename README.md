@@ -68,8 +68,8 @@ Blockhead intends to switch to the Polygon zkEVM chain in the future.
 
 The pages here provide guides and technical documentation for Blockhead. You can refer to these resources to understand the Blockhead Protocol Smart Contracts and how Oracles are used.
 
-- Invoice: The smart manages the invoice process
-- Escrow: Create unique wallet and stores payment
+- Invoice: The smart contract manages the invoice process
+- Escrow: Creates a unique wallet and stores payment
 - Marketplace Oracle: Its purpose includes delivering invoice data to the smart contracts, determines escrow hold period & post-dispute allocations
 
 ## Transaction Flow
@@ -187,7 +187,7 @@ uint256 public amountDepositedByPayer
 
 The `amountDepositedByPayer` will be used to check the amount sent to the wallet by the payer. This is preferred over `address(this).balance` simply because a random wallet could send POL(matic) to the wallet resulting in inconsistencies. This will be duly handled.
 
-The functions below handles the deposit and withdrawal of value. They perform necessary checks, which involve allowing only the authorized withdrawals and verifying the current status of an invoice before send out.
+The functions below handles the deposit and withdrawal of value. They perform necessary checks, which involve allowing only the authorized withdrawals and verifying the current status of an invoice before it is sent out.
 
 ```typescript
 function deposit() payable external;
