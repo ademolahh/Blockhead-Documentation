@@ -96,7 +96,7 @@ Each components use during a transaction is illustrated in the diagram below
 
 ## Smart Contracts
 
-Check [here](./flowchart.png) for more a detailed interaction between the three major components
+Check [here](./flowchart.png) for a more detailed interaction between the three major components
 
 ### INVOICE
 
