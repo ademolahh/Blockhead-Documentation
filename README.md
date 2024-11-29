@@ -165,7 +165,7 @@ function getListOfInvoice(address _creator) external view returns(InvoiceData[] 
 
 #### Escrow factory
 
-It creates the escrow wallet using the [CREATE2](https://eips.ethereum.org/EIPS/eip-1014) OPCODE. Create2 makes a it possible to create a deterministic and unique address with the use of a salt(any random data), creators address is used in this case.
+It creates the escrow wallet using the [CREATE2](https://eips.ethereum.org/EIPS/eip-1014) OPCODE. Create2 makes it possible to create a deterministic and unique address with the use of a salt(any random data), creators address is used in this case.
 
 We will make use of the Create2 library by [Openzeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/utils/Create2.sol)
 
